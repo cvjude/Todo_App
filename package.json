@@ -9,7 +9,7 @@
     "migrate_test": "cross-env NODE_ENV=test sequelize db:migrate",
     "migrate_test:undo": "cross-env NODE_ENV=test sequelize db:migrate:undo:all",
     "pretest": "npm run migrate_test:undo && npm run migrate_test",
-    "test": "jest --detectOpenHandles --verbose --coverage --forceExit",
+    "test": "jest",
     "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
     "server": "cross-env-shell NODE_ENV=development && set DEBUG=dev & nodemon --exec babel-node server/index.js",
     "migrate": "cross-env sequelize db:migrate",
@@ -30,8 +30,11 @@
     "supertest": "^4.0.2"
   },
   "dependencies": {
+    "@babel/plugin-transform-react-jsx": "^7.14.5",
     "@babel/polyfill": "^7.12.1",
+    "@babel/preset-react": "^7.14.5",
     "@hapi/joi": "^17.1.1",
+    "babel-jest": "^27.0.6",
     "body-parser": "^1.19.0",
     "chalk": "^4.1.0",
     "cookie-parser": "^1.4.5",
@@ -49,6 +52,7 @@
     "moment": "^2.29.1",
     "morgan": "^1.10.0",
     "pg": "^8.5.1",
+    "react": "^17.0.2",
     "react-toast-notifications": "^2.5.1",
     "sequelize": "^5.22.3",
     "sequelize-cli": "^5.5.1",
